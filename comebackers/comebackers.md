@@ -5,7 +5,7 @@
 
 It's not news to anyone that being on the receiving end of a 100 mph fastball is an unpleasant experience, but it's easy for players and fans alike forget that this little projectile is in fact [a deadly weapon](https://www.baseballprospectus.com/news/article/20914/pebble-hunting-how-beanballs-and-brawls-could-be-avoided/). While the tragic death of Ray Chapman along with decades of bruises and broken bones have spurred hitters to don an array of protective items in the box, our baseball culture does not afford pitchers the same protections. This is despite the fact that batted balls regularly exceed the speeds of the fastest fastballs, and occasionally top 120 mph, which may approach the [limits of human reaction times](https://projects.seattletimes.com/2017/mariners-preview/science/) at that distance. Further, while hitters are selected for their [superhuman eyesight and reaction](https://pubmed.ncbi.nlm.nih.gov/9037989/), pitchers generally are not so endowed. The issue may be further exacerbated by ever-rising exit velocities brought on by the launch angle revolution and modern hitting analytics: 
 
-![hard hit rates](figs/hard_hit_rates.jpg)
+![hard hit rates](https://raw.githubusercontent.com/clearingthefog/fangraphs_community/refs/heads/main/comebackers/figs/hard_hit_rates.jpg)
 
 That's a concerning chart. In particular, notice the difference in scales across the panels; while the frequency of 90+ mph batted balls has increased by 8.7% in this span, 110+ mph balls occur a full 41% more often now than they did in 2015! Let's find out if this trend is putting our already-fragile pitchers at even more risk.
 
@@ -15,13 +15,13 @@ The study of comebacker injuries is greatly complicated by the miniscule sample 
 
 I tackled this problem instead by looking at the much larger sample of batted balls which had the _potential_ to seriously impact a pitcher. If the rate of these "dangerous" batted balls has changed, we can assume the risk of actual injuries has changed by a proportional amount, even if our observations of actual injuries are too small to analyze. First we need a definition of "dangerous" batted balls: It's not perfect, but I settled on all line-drives which pass within three feet of the average pitcher's chest at follow-through. Since actually measuring the location of the pitcher's chest is likely impossible with publicly available data, I opted to approximate the average pitcher's follow-through as the point 55.5 feet from home plate and 4.4 feet above the ground. The former is roughly an average stride length away from the pitcher's rubber, while I estimated latter by pretending to throw a few pitches in my living room, measuring the position of my chest as a fraction of my standing height, and applying that to major league pitchers' average height (plus 5 inches for the height of the mound at that point). The three foot buffer is to account for pitchers who veer away from this point after release, such as Andrés Muñoz:
 
-![munoz followthrough](figs/munoz_followthrough.png)
+![munoz followthrough](https://raw.githubusercontent.com/clearingthefog/fangraphs_community/refs/heads/main/comebackers/figs/munoz_followthrough.png)
 
 That's not exactly the athletic fielding position I would choose to put myself in if I had to a dodge line drives off the bat of Aaron Judge, but that's the price you pay for being able to paint 101 mph on the black.
 
 With a bit of basic trigonometry, we can cross reference this definition with the launch angle, spray angle, and exit velocity of every batted ball in the Statcast era to determine which were potentially dangerous. The plot below shows--from the batter's perspective--the most recent 50,000 batted balls in MLB, with 95+ mph exit velocities colored blue, and 95+ mph "dangerous comebackers" colored red.
 
-![dangerous batted balls](./figs/batters_perspective_dangerous_balls.jpg)
+![dangerous batted balls](https://raw.githubusercontent.com/clearingthefog/fangraphs_community/refs/heads/main/comebackers/figs/batters_perspective_dangerous_balls.jpg)
 
 The danger zone is a small but not insignificant portion of the batter's field of view, and receives a fair share of hard hit balls. The sweet spot is roughly a 5.5° launch angle to straightaway center field, which sounds about right intuitively. Let's look at a few examples to ensure our definition is working as expected:
 
@@ -42,13 +42,13 @@ That one nearly nails Carlos Rodon in the hip, but he gets just a bit of glove o
 
 When we apply this definition to the roughly one million batted balls that have been tracked by Statcast since 2015 (ignoring 2020 as usual, though it's not out of line with the trends we identify here), we get a few thousand characterized as dangerous; the exact number depends on what exit velocity threshold is used. We'll look at 90+ and 95+ mph today, since for higher thresholds the samples become too small (we're already slicing the data pretty finely by launch and spray angle). When we plotted over time, we find a surprising trend: the rate of dangerous comebackers has decreased by 25-30% since 2015!
 
-![dangerous batted balls per 1000 pitches](figs/dangerous_bb_per_pitch.jpg)
+![dangerous batted balls per 1000 pitches](https://raw.githubusercontent.com/clearingthefog/fangraphs_community/refs/heads/main/comebackers/figs/dangerous_bb_per_pitch.jpg)
 
 This trend has fairly strong statistical significance (p=0.03 and 0.08 respectively) and a similar pattern for both exit velocity thresholds: a large decrease in 2015-2017, and a more mixed signal since then. If the rate of dangerous comebackers was determined mostly by the rate of hard-hit balls, we'd expect it to look more like the first figure in this piece, with a fairly consistent positive trend across time. Instead, we're seeing both a different direction and shape.
 
 Since this trend doesn't seem to be explained by exit velocity alone, let's look at our other two parameters, launch and spray angle. Here are the average launch and spray angles for all hard hit balls (not just dangerous comebackers), with spray angle normalized for batter handedness so that pulled balls are indicated by positive spray angles:
 
-![launch and spray angle trends](figs/launch_and_spray.jpg)
+![launch and spray angle trends](https://raw.githubusercontent.com/clearingthefog/fangraphs_community/refs/heads/main/comebackers/figs/launch_and_spray.jpg)
 
 Recall that the "danger zone" was centered on a launch of 5.5° and spray of 0°. This data shows that hard-hit balls, by any exit velocity definition, are on average being hit increasingly far from this danger zone both horizontally and vertically (all trends statistically significant with p<0.03). The largest change in launch angles occurred primarily during the 2015-2017 heyday of the so-called launch angle revolution, which explains the substantial decline in comebacker risk we found during that period, while the increasing pull tendency over time shows a slower yet steadier increase. 
 
