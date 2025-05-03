@@ -10,7 +10,7 @@ def statcast_to_feet(x, y):
     """
     convert statcast locations to feet from homeplate origin
 
-    homeplate center location can be found from:
+    homeplate back apex location can be found from:
     ```
         STADIUM_COORDS = pd.read_csv(
             pybaseball.plotting.CUR_PATH / 'data/mlbstadiums.csv', 
@@ -18,16 +18,16 @@ def statcast_to_feet(x, y):
         )
         coords = STADIUM_COORDS[STADIUM_COORDS.segment == "home_plate"]
         plt.scatter(
-            coords.x, coords.y
+            coords.x, coords.y, alpha=0.2,
         )
     ```
-    looks like 125.2, 201.5
+    looks like 125.15, 203.4
 
     sc_to_feet from https://community.fangraphs.com/using-statcast-data-to-estimate-minor-league-home-run-distance/
     """
     sc_to_feet = 2.29
-    x = sc_to_feet * (x - 125.2)
-    y = sc_to_feet * (201.5 - y)
+    x = sc_to_feet * (x - 125.15)
+    y = sc_to_feet * (203.4 - y)
     return x, y
 
 
